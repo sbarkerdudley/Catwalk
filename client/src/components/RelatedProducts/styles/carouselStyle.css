@@ -1,9 +1,11 @@
 
 
 #related {
-
-  margin: 5%;
-  padding: 5%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  /* margin: 3rem; */
+  /* padding: 3rem; */
 }
 
 header.carousel {
@@ -21,11 +23,11 @@ main.carousel {
   white-space: nowrap;
   width: 100%;
   height: 60vh;
-  margin: 1em;
+  margin: 1rem;
   align-content: center;
   padding: 2%;
-  scroll-padding: 1em;
-  border-radius: 30px;
+  scroll-padding: 1rem;
+  border-radius: var(--radius-lg);
 }
 
 .carousel::-webkit-scrollbar {
@@ -33,14 +35,13 @@ main.carousel {
 }
 
 div.card {
-  box-sizing: content-box;
   border-radius: 20px;
   justify-content: center;
   z-index: 15;
   scroll-snap-align: start;
   display: inline-block;
-  margin: 0.5em;
-  margin-right: 1em;
+  margin: 0.5rem;
+  margin-right: 1rem;
   background-color: #f8f8f8;
   height: inherit;
   width: 40vh;
@@ -57,10 +58,10 @@ header button.card-btn {
   display: block;
   background: none;
   position: absolute;
-  font-size: 40px;
+  /* font-size: 40px; */
   color: rgba(255,255,255,0.4);
   position: absolute;
-  padding: 20px;
+  padding: 1rem;
   top: 0;
   right: 0;
   z-index: 20;
@@ -73,20 +74,15 @@ span.fas {
   position: absolute;
   bottom: 0;
   right: 0;
-  font-size: 40px;
+  font-size: 150%;
   padding: 20px;
 }
 
 div.card:hover
 span.fas {
-  transition: 350ms ease-in-out;
   visibility: visible;
 }
 
-span.fas:hover {
-  color: orangered;
-  transform: scale(1.1);
-}
 
 div.card:hover,
 header button:hover,
@@ -127,14 +123,15 @@ footer.card-info {
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: left;
-  padding-left: 1em;
+  padding-left: 1rem;
   align-content: space-between;
   padding: auto;
-  line-height: 1.2em;
+  line-height: 1.2rem;
 }
 
 footer.card-info {
   display: block;
+  line-height: 1.5rem;
   width: 90%;
 }
 
@@ -144,8 +141,8 @@ span.card.prices.original-price {
 }
 
 span.card.prices.sale {
-  color: orangered;
-  font-size: large;
+  color: var(--red);
+  font-size: 150%;
   font-weight: bold;
 }
 

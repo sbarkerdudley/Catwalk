@@ -4,35 +4,27 @@
 
 /* @import 'bourbon'; */
 
-
-*{
-  margin: 0;
-  padding: 0;
-}
-
-body{
+body {
   font-family: 'Cabin', sans-serif;
   background-color: #f8f8f8;
   color: rgb(51, 51, 51);
-  line-height: 1.8em;
-  font-size: 14px;
+  line-height: 1.8rem;
 }
 
-button{
+button {
   font-family: 'Cabin', sans-serif;
   color: rgb(51, 51, 51);
-  background-color:rgb(255, 255, 255);
+  background-color: var(--white);
   border-radius: 2px;
-  margin: 5px;
-  padding: 5px;
+  margin: 1rem;
+  padding: 1rem;
 }
 
 .ratings-and-reviews {
-  background-color: rgb(233, 233, 233);
-  /* display: flex; */
+  background-color: var(--white);
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
+  min-height: 80vh;
   margin: 5%;
   padding: 5%;
   border-top: 1px rgb(134, 134, 134) solid;
@@ -45,25 +37,20 @@ button{
   text-align: left;
   font-family: 'Karla', sans-serif;
   font-weight: 200;
-  font-size:2em;
-  line-height: 1.2em;
+  font-size: 2rem;
+  line-height: 1.2rem;
 }
 .float-container {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  /* border: 3px solid #fff; */
   padding: 2%;
 }
 
 .float-child {
-  /* flex: 1; */
-  /* border: 2px solid yellow; */
-  /* width: 20%; */
-  margin: 10px;
+  margin: 1rem;
   float: left;
-  padding: 10px;
-  /* border: 2px solid red; */
+  padding: 1rem;
 }
 
 .float-child .breakdown {
@@ -80,32 +67,28 @@ button{
   display: flex;
   flex-direction: column;
 }
-/* .float-child:first-child {
-  margin-right: 20px;
-  flex-direction:column;
-} */
 
 .write-review button {
   align-items: center;
   color: #f8f8f8;
   background-color: rgb(214, 167, 0);
-  border-radius: 10px;
+  border-radius: 1rem;
   height: 100px;
   width: 300px;
-  padding: 10%, 10%, 10%, 10%;
-  font-weight: bold;
-  font-size: 2em;
+  padding: 1rem;
+  font-weight: 800;
+  font-size: 2rem;
 }
 
 .new-review fieldset {
   font-family: 'Karla', sans-serif;
-  background-color: #fff;
-  padding: 2%;
-  border-radius: 10px;
+  background-color: var(--white);
+  padding: 1rem;
+  border-radius: 1rem;
   border-color: #cbcbcb;
 }
 .new-review legend {
-  font-size: 2em;
+  font-size: 1rem;
   font-weight: bold;
 }
 
@@ -116,36 +99,24 @@ button{
 }
 
 .topSectionRatings h1 {
-  font-size: 3em;
+  font-size: 3rem;
   font-weight: 400;
-  /* text-align: left;
-  font-family: 'Karla', sans-serif;
-  font-weight: 200;
-  font-size:2em;
-  line-height: 1.2em; */
 }
 
 .topSectionRatings label {
   text-align: center;
-  padding-right: 10px;
+  padding-right: 1rem;
 }
-
 
 .reviewItem {
   color: rgb(51, 51, 51);
-  /* background-color: rgb(231, 231, 231); */
-  /* border: 1px solid #383838; */
-  /* height: 100px; */
   margin: 20px;
-  padding: 10px;
-  /* width: auto; */
+  padding: 1rem;
   border-bottom: 1px solid #cbcbcb;
-
 }
 .reviewTopSection {
-
-  margin: 2px;
-  height: 40px;
+  margin: .25rem;
+  height: 2rem;
 }
 .starRatings {
   float: left;
@@ -155,16 +126,15 @@ button{
 .reviewerAndDate {
   float: right;
   text-align: right;
-
 }
 
 .reviewMidSection {
-  padding: 10px, 10px, 50px, 10px;
+  padding: 1rem, 1rem, 5rem, 1rem;
 }
 
 .reviewSummary {
   font-weight: bold;
-  font-size: 2em;
+  font-size: 2rem;
 }
 
 .reviewBody {
@@ -172,7 +142,7 @@ button{
 }
 .productRecommended {
   font-style: italic;
-  color:rgb(109, 109, 109);
+  color: rgb(109, 109, 109);
   padding-top: 20px;
 }
 
@@ -180,11 +150,6 @@ button{
   padding-top: 20px;
 }
 
-/* :root {
-  --star-size: 20px;
-  --star-color: rgb(167, 167, 167);
-  --star-background: rgb(43, 185, 0);
-} */
 
 .Stars {
   --star-size: 20px;
@@ -192,19 +157,21 @@ button{
   --star-background: rgb(214, 167, 0);
   --percent: calc(var(--rating) / 5 * 100%);
   display: inline-block;
-  /* font-size: var(--star-size);
-  font-family: Times; */
   line-height: 1;
 }
 .Stars::before {
-  content: "★★★★★";
+  content: '★★★★★';
   letter-spacing: 2px;
-  background: linear-gradient(90deg, var(--star-background) var(--percent), var(--star-color) var(--percent));
+  background: linear-gradient(
+    90deg,
+    var(--star-background) var(--percent),
+    var(--star-color) var(--percent)
+  );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-.starRating input[type="radio"] {
+.starRating input[type='radio'] {
   display: none;
 }
 
@@ -213,7 +180,6 @@ button{
   transition: color 200ms;
 }
 
-
 .Bars {
   --bar-size: 90px;
   --bar-color: rgb(167, 167, 167);
@@ -221,22 +187,17 @@ button{
   --percent: calc(var(--rating) / 5 * 100%);
   display: inline-block;
   text-align: center;
-  /* font-size: var(--star-size);
-  font-family: Times; */
-  /* line-height: 1; */
   width: 200px;
   height: 20px;
-  border: 1px solid  black;
-  /* letter-spacing: 2px; */
-  background: linear-gradient(to right, var(--bar-background) var(--percent), var(--bar-color) var(--percent));
+  border: 1px solid black;
+  background: linear-gradient(
+    to right,
+    var(--bar-background) var(--percent),
+    var(--bar-color) var(--percent)
+  );
 }
 
-
-
 .CharList {
-  /* display: flex;
-  flex-wrap: wrap;
-  flex-direction: column-reverse; */
   color: green;
 }
 
@@ -258,7 +219,6 @@ button{
   align-items: center;
   color: grey;
 }
-
 
 /* $gradient:      linear-gradient(100deg, rgb(255,90,100) 0%, rgb(250,160,75) 30%, rgb(210,220,105) 70%, rgb(14,244,155) 100%);
 $background:    #ff9035;

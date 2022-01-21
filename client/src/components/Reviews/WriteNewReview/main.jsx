@@ -5,11 +5,6 @@ import productChar from './productChar.js';
 import CharList from './CharList.jsx';
 import '../styles/style.css';
 
-
-// import ReactDOM from 'react-dom';
-// import $ from 'jquery';
-// const axios = require('axios').default;
-
 const AddReview = () => {
 
   const [formData, setFormData] = useState({
@@ -50,7 +45,7 @@ const AddReview = () => {
 
   const fileSelectedHandler = (event) => {
   }
-  
+
   const handleFormSubmission = (event) => {
     event.preventDefault();
     const errors = validate(formData);
