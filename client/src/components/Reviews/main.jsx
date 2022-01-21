@@ -59,7 +59,7 @@ const RatingsAndReviews = ( {productId} ) => {
   }
 
   return (
-    <div className="ratings-and-reviews">
+    <section id="reviews">
       <div className="float-container">
         <div className="float-child">
           <div className="breakdown">
@@ -77,7 +77,7 @@ const RatingsAndReviews = ( {productId} ) => {
       <div className="write-review">
         {renderForm}
       </div>
-    </div>
+    </section>
 
   );
 };

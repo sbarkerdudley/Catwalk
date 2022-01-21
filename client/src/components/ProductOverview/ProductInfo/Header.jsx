@@ -7,7 +7,7 @@ import DisplayStarRating from '../../../../../Shared/DisplayStarRating.jsx';
 
 var scrollToReviews = (event) => {
   event.preventDefault();
-  var [reviews] = document.getElementsByClassName('ratings-and-reviews');
+  var [reviews] = document.getElementById('ratings');
   reviews.scrollIntoView();
 };
 

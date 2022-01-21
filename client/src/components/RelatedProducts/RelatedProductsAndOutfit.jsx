@@ -77,13 +77,17 @@ const RelatedProductsAndOutfit = (props) => {
 
   return (
     <UserContext.Provider value={initialState}>
-      <div id='related'>
+      <ComparisonModal />
+      <section className='related-products'>
         <Suspense fallback={<></>}>
-          <ComparisonModal />
           <RelatedProductsCarousel />
+        </Suspense>
+      </section>
+      <section className='related-products'>
+        <Suspense fallback={<></>}>
           <UserOutfitCarousel />
         </Suspense>
-      </div>
+      </section>
     </UserContext.Provider>
   );
 };

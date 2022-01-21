@@ -4,9 +4,9 @@ import '../styles/style.css';
 
 const ReviewsList = ({ productId, reviewData, sortBy, handleSortBy, starNumSelect }) => {
   return (
-    <div>
+    <>
       <ListBuilder productId={productId} reviewData={reviewData} sortBy={sortBy} handleSortBy={handleSortBy} starNumSelect={starNumSelect} />
-    </div>
+    </>
   );
 };
 

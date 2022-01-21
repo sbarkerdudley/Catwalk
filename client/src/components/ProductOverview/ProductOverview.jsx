@@ -41,21 +41,19 @@ var ProductOverview = (props) => {
 
 
   return (
-    <div>
+    <section id='overview'>
       <FakeProduct.Provider value={[product, updateProduct]}>
         <Style.Provider value={[style, updateStyle]} >
           <ExpandedView.Provider value={[expand, updateExpand]} >
             <div id="main-block" >
-              <div id="top-cell">
                 <CategoryAndName />
-                <ProductInfo />
-              </div>
               <StyleSelect />
+                <ProductInfo />
             </div>
           </ExpandedView.Provider>
         </Style.Provider>
       </FakeProduct.Provider>
-    </div>
+    </section>
   );
 };
 

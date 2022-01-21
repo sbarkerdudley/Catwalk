@@ -12,17 +12,17 @@ var Share = () => {
       <ul>
         <li className='share'>
           <a href="#" onClick={alertComingSoon}>
-            <span class="fab fa-facebook-square"></span>
+            <span className="fab fa-facebook-square"></span>
           </a>
         </li>
         <li className='share'>
           <a href="#" onClick={alertComingSoon}>
-            <span class="fab fa-twitter-square"></span>
+            <span className="fab fa-twitter-square"></span>
           </a>
         </li>
         <li className='share'>
           <a href="#" onClick={alertComingSoon}>
-            <span class="fab fa-pinterest-square"></span>
+            <span className="fab fa-pinterest-square"></span>
           </a>
         </li>
       </ul>

@@ -38,17 +38,16 @@ const ListBuilder = ({ productId, reviewData, sortBy, handleSortBy, starNumSelec
     return currentData.map((review, i) => {
       if (i < counter) {
         return (
-          <div className="reviewList" key={i}>
-            <ReviewItem review={review} key={review.review_id}/>
-          </div>
+          <li key={i}>
+            <ReviewItem review={review} key={review.review_id} />
+          </li>
         );
       }
     })
   }, [currentData]);
 
   return (
-    <ul>
-      <div className="sortBy">
+    <div className="sortBy">
         <label htmlFor="sortBy">Sort By: </label>
         <select
           name="sortBy"
@@ -56,16 +55,17 @@ const ListBuilder = ({ productId, reviewData, sortBy, handleSortBy, starNumSelec
           className="sortBy-form"
           value={sortBy}
           onChange={handleSortBy}
-        >
+          >
           <option value="relevant">Most Relevant</option>
           <option value="helpful">Most Helpful</option>
           <option value="newest">Newest</option>
         </select>
         {showCurrentStarNum}
-      </div>
-      { REVIEWS }
-      <button onClick={handleDisplayClick}>Display Two More Reviews</button>
-    </ul>
+      <ul>
+        { REVIEWS }
+        <button onClick={handleDisplayClick}>Display Two More Reviews</button>
+      </ul>
+    </div>
   );
 };
 

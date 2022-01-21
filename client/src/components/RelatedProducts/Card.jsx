@@ -1,8 +1,7 @@
 import React, { Suspense } from 'react';
-
 import CardButton from './CardButton.jsx';
-import CardImage from './CardImage.jsx';
-import CardInfo from './CardInfo.jsx';
+const CardImage = React.lazy(() => import('./CardImage.jsx'));
+const CardInfo = React.lazy(() => import('./CardInfo.jsx'));
 import UserContext from './UserContext.jsx';
 
 
@@ -11,13 +10,21 @@ import { relatedProps, outfitProps, addToOutfitProps } from './utils/props.js';
 
 
 const Card = (props) => {
-
   let { product, label, update } = props;
   let { setUserOutfit, userOutfit } = React.useContext(UserContext);
 
   const addProductToOutfit = (product) => {
     setUserOutfit(userOutfit => [product, ...userOutfit])
   };
+
+
+  if (label === 'addToOutfit') {
+    return (
+      <div className={`card ${label}`}>
+        <CardButton {...{label}} />
+      </div>
+    )
+  }
 
   let { img, description, slogan, id } = product;
 
@@ -34,14 +41,16 @@ const Card = (props) => {
           <CardButton buttonText={'★'} click={() => addProductToOutfit(product)} id={id} />
           {
             img
-              &&
-            ( <Suspense fallback={<img src='assets/loading.gif' />} >
-              <CardImage img={img} click={update} id={id} />
-            </Suspense> )
+            &&
+            (<Suspense fallback={<img src='assets/loading.gif' />} >
+              <CardImage img={product.img} click={update} id={id} />
+            </Suspense>)
           }
         </Suspense>
       </header>
-      <CardInfo {...{product, update}} />
+      <Suspense fallback={<></>} >
+        <CardInfo {...{ product, update }} />
+      </Suspense>
       <span className="fas fa-expand"></span>
     </div>
   );

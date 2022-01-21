@@ -21,9 +21,8 @@ var getPrice = (style) => {
     return (
       <p id="price">
 
-        <span className="discount-price">${discounted}</span>
-        &nbsp;
-        <span className="former-price">${regular}</span>
+        <span className="discount-price">${discounted}&nbsp;</span>
+        <span className="former-price">&nbsp;${regular}</span>
       </p>
     );
   }

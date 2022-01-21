@@ -1,14 +1,12 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import LoadProduct from './components/ProductOverview/LoadProduct.jsx';
-import RelatedProductsAndOutfit from './components/RelatedProducts/RelatedProductsAndOutfit.jsx';
-import RatingsAndReviews from './components/Reviews/main.jsx';
 
 var App = () => {
   return (
     <main id='app'>
-      <LoadProduct />
-      {/* <RelatedProductsAndOutfit /> */}
-      {/* <RatingsAndReviews /> */}
+      <Suspense fallback={<></>}>
+        <LoadProduct />
+      </Suspense>
     </main>
   );
 

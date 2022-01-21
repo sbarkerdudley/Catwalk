@@ -1,13 +1,12 @@
 import React from 'react';
 
-// should determine how many the shopper can buy of the selected size
-var SelectQty = (props) => {
+const SelectQty = (props) => {
 
   if (props.sizeSelected === 'Select size') {
     return (
       <div>
         <select disabled>
-          <option>-</option>
+          <option>&nbsp;&nbsp;&nbsp;</option>
         </select>
       </div>
     );
@@ -16,9 +15,8 @@ var SelectQty = (props) => {
     return (
       <div id="select-quantity-container">
         <select id="select-quantity">
-          {/* TODO project requirement: dropdown should be disabled until a size is selected (already took care of displaying "-") */}
           {props.qtyList.map((qty) => {
-            return (<option value={qty}>{qty}</option>);
+            return (<option value={qty}>&nbsp;{qty}&nbsp;</option>);
           })}
         </select>
       </div>
@@ -26,7 +24,5 @@ var SelectQty = (props) => {
   }
 
 };
-
-
 
 export default SelectQty;

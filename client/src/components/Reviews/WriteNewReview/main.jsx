@@ -122,7 +122,6 @@ const AddReview = () => {
               id="reviewSummary"
               className="materialize-textarea"
               value={formData.reviewSummary}
-              placeholder="Example: Best purchase ever!"
               onChange={handleChange}>
             </textarea>
           </div>
@@ -133,7 +132,6 @@ const AddReview = () => {
               id="reviewBody"
               className="materialize-textarea"
               value={formData.reviewBody}
-              placeholder="Why did you like the product or not?"
               onChange={handleChange}>
             </textarea>
           </div>
@@ -147,7 +145,6 @@ const AddReview = () => {
               id="nickname"
               className="materialize-textarea"
               value={formData.nickname}
-              placeholder="Example: jackson11!"
               onChange={handleChange}>
             </textarea>
           </div>
@@ -158,7 +155,6 @@ const AddReview = () => {
               id="email"
               className="materialize-textarea"
               value={formData.email}
-              placeholder="Example: jackson11@email.com"
               onChange={handleChange}>
             </textarea>
           </div>

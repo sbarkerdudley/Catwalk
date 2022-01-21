@@ -25,7 +25,7 @@ const Carousel = (props) => {
     ));
 
     if (label === 'outfit') {
-      // rendered = [<Card label='addToOutfit' />, ...rendered];
+      rendered = [<Card label='addToOutfit' />, ...rendered];
     }
     return rendered
 

@@ -1,20 +1,20 @@
 
 
-#related {
+.related-products {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  /* margin: 3rem; */
-  /* padding: 3rem; */
 }
 
-header.carousel {
-  align-items: flex-start;
+.carousel>h2 {
+  float: left;
+  padding: 1rem 0;
+  font-size: 200%;
 }
 
-main.carousel {
+main.carousel,
+main.outfit-carousel {
   align-items: center;
-  background-color: rgb(233, 233, 233);
+  background-color: var(--translucent);
   display: inline-flex;
   scroll-snap-type: x mandatory;
   box-sizing: content-box;
@@ -23,9 +23,9 @@ main.carousel {
   white-space: nowrap;
   width: 100%;
   height: 60vh;
-  margin: 1rem;
+  padding: 1rem;
   align-content: center;
-  padding: 2%;
+
   scroll-padding: 1rem;
   border-radius: var(--radius-lg);
 }
@@ -35,19 +35,16 @@ main.carousel {
 }
 
 div.card {
-  border-radius: 20px;
+  border-radius: var(--radius-sm);
   justify-content: center;
   z-index: 15;
   scroll-snap-align: start;
-  display: inline-block;
-  margin: 0.5rem;
-  margin-right: 1rem;
-  background-color: #f8f8f8;
+  margin: 1rem 0.5rem;
+  background-color: var(--translucent);
   height: inherit;
   width: 40vh;
   position: relative;
-  box-shadow: 12.5px 12.5px 10px rgba(0, 0, 0, 0.035),
-    100px 100px 80px rgba(0, 0, 0, 0.07);
+  box-shadow: var(--shadow);
 }
 
 div.card > * {
@@ -58,9 +55,7 @@ header button.card-btn {
   display: block;
   background: none;
   position: absolute;
-  /* font-size: 40px; */
-  color: rgba(255,255,255,0.4);
-  position: absolute;
+  color: var(--translucent);
   padding: 1rem;
   top: 0;
   right: 0;
@@ -69,7 +64,7 @@ header button.card-btn {
 
 
 span.fas {
-  color: rgb(200,200,200);
+  color: var(--translucent);
   visibility: hidden;
   position: absolute;
   bottom: 0;
@@ -90,8 +85,7 @@ header > button {
   cursor: pointer;
   transform: scale(1.02);
   color: orangered;
-  box-shadow: 12.5px 8.5px 10px rgba(0, 0, 0, 0.042),
-  60px 80px 80px rgba(0, 0, 0, 0.151);
+  box-shadow: var(--glow);
 }
 
 
@@ -101,54 +95,55 @@ header button:hover {
 
 header.card {
   align-content: center;
+  width: inherit;
 }
 
 header.card img {
-  border-radius: 20px 20px 0 0;
-  z-index: 0;
+  z-index: 1;
+  border-top-right-radius: var(--radius-sm);
+  border-top-left-radius: var(--radius-sm);
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
   height: 40vh;
-  width: 40vh;
+  width: 100%;
   object-fit: cover;
 }
 
 #addToOutfit {
-  font-size: 120px;
+  background-color: transparent;
+  font-size: 200%;
 }
 
 footer.card-info {
-  height: 30%;
-  width: 90%;
-  margin: auto;
   display: flex;
+  margin: 0.5rem;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: left;
-  padding-left: 1rem;
-  align-content: space-between;
-  padding: auto;
-  line-height: 1.2rem;
+  justify-content: flex-end;
 }
 
 footer.card-info {
   display: block;
-  line-height: 1.5rem;
-  width: 90%;
 }
 
+span.card.prices {
+  line-height: 2rem;
+}
 span.card.prices.original-price {
   text-decoration: line-through;
   font-style: italic;
 }
 
-span.card.prices.sale {
-  color: var(--red);
-  font-size: 150%;
-  font-weight: bold;
-}
-
 span.card.prices.original-price::before {
   content: 'was  ' ;
 }
+
+span.card.prices.sale {
+  color: var(--red);
+  font-size: 120%;
+  font-weight: bold;
+}
+
 
 footer > *:hover {
   filter: brightness(1.2);
@@ -156,12 +151,13 @@ footer > *:hover {
 
 footer p.category {
   letter-spacing: 0.2rem;
-  font-weight: bold;
+  font-weight: 700;
   text-transform: uppercase;
 }
 
 footer div.rating {
-  color: rgb(214, 167, 0);
-  font-size: large;
+  color: var(--yellow);
+  text-shadow: var(--black-trans);
+  font-size: 150%;
 }
 

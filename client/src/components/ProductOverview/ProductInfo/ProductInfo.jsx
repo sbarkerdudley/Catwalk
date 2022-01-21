@@ -8,11 +8,11 @@ import Share from './Share/Share.jsx';
 var ProductInfo = (props) => {
   return (
     <div id="product-info">
-      <Header />
       <div id="description-and-share">
         <Description />
         <Share />
       </div>
+      <Header />
     </div>
   );
 };
