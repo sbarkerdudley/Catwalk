@@ -1,10 +1,9 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 
 import CardButton from './CardButton.jsx';
 import CardImage from './CardImage.jsx';
 import CardInfo from './CardInfo.jsx';
 import UserContext from './UserContext.jsx';
-import {getReviewsMeta} from '../../../../Shared/makeRequest.js';
 
 
 
@@ -13,30 +12,28 @@ import { relatedProps, outfitProps, addToOutfitProps } from './utils/props.js';
 
 const Card = (props) => {
 
-  let { product, label, click, update } = props;
-  let { setUserOutfit, userOutfit} = React.useContext(UserContext);
+  let { product, label, update } = props;
+  let { setUserOutfit, userOutfit } = React.useContext(UserContext);
 
   const addProductToOutfit = (product) => {
-    setUserOutfit(userOutfit = [product, ...userOutfit])
+    setUserOutfit(userOutfit => [product, ...userOutfit])
   };
 
-  let { img, images, name, price, sale, thumbnails, description, slogan, category, id } = product;
+  let { img, description, slogan, id } = product;
 
   return (
     <div className={`card ${label}`}
       aria-description={description}
-      title={slogan} >
+      title={slogan}
+    >
       <header className='card'>
-        <CardButton buttonText={'★'} click={() => addProductToOutfit(product)} id={id}/>
-        {
-          img ?
-            <CardImage img={img} click={update} id={id}/>
-            :
-            <img src='assets/loading.gif' />
-        }
+        <Suspense fallback={<img src='assets/loading.gif' />} >
+          <CardButton buttonText={'★'} click={() => addProductToOutfit(product)} id={id} />
+          { img && <CardImage img={img} click={update} id={id} /> }
+        </Suspense>
       </header>
-      <CardInfo product={product} {...update}/>
-      <i class="fas fa-expand"></i>
+      <CardInfo product={product} {...update} />
+      <span class="fas fa-expand"></span>
     </div>
   );
 };

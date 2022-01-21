@@ -83,7 +83,7 @@ header button.card-btn {
 }
 
 
-i.fas {
+span.fas {
   color: rgb(200,200,200);
   visibility: hidden;
   position: absolute;
@@ -94,12 +94,12 @@ i.fas {
 }
 
 div.card:hover
-i.fas {
+span.fas {
   transition: 350ms ease-in-out;
   visibility: visible;
 }
 
-i.fas:hover {
+span.fas:hover {
   color: orangered;
   transform: scale(1.1);
 }

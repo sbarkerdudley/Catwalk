@@ -1,5 +1,4 @@
 import React from 'react';
-import Carousel from './Carousel.jsx';
 import UserContext from './UserContext.jsx';
 
 

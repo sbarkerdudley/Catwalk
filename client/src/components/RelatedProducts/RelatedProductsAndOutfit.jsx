@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext } from 'react';
+import React, { useEffect, useState, useContext, Suspense } from 'react';
 import Carousel from './Carousel.jsx';
 import Wrapper from './Wrapper.jsx';
 import UserContext from './UserContext.jsx';
@@ -15,19 +15,18 @@ const productEndpoint = axios.create({ baseURL: 'http://localhost:3000/products'
 const RelatedProductsAndOutfit = (props) => {
 
   let { updateGlobalId, productId } = props;
-  let [currentProductId, setCurrentProductId] = useState(props.productId);
+  let [currentProductId, setCurrentProductId] = useState(productId);
   let [relatedProducts, setRelatedProducts] = useState([]);
   let [userOutfitIds, setUserOutfitIds] = useState(retrieveLocalOutfit());
   let [userOutfit, setUserOutfit] = useState([]);
   let [modal, setModal] = useState(false);
 
-  useEffect(productId => {
-    setCurrentProductId(props.productId);
+  useEffect((productId) => {
+    setCurrentProductId(productId);
     productEndpoint.get(`/related/all/${productId}`)
       .then(results => setRelatedProducts(results.data))
-      .then(console.log)
       .catch(() => setRelatedProducts(fakeProductList));
-  }, [currentProductId]); //getting debounced by API
+  }, [currentProductId, productId]);
 
   let updateOutfit = (product) => {
     setUserOutfit([...userOutfit, product]);
@@ -37,7 +36,7 @@ const RelatedProductsAndOutfit = (props) => {
   if (userOutfitIds.length) {
     useEffect(userOutfitIds.map(id => {
       productEndpoint.get(`/all/${id}`)
-        .then(results => updateOutfit(resuts.data));
+        .then(results => updateOutfit(results.data));
     }), [currentProductId]);
   }
 
@@ -77,9 +76,11 @@ const RelatedProductsAndOutfit = (props) => {
   return (
     <UserContext.Provider value={initialState}>
       <div id='related'>
-        <ComparisonModal />
-        <RelatedProductsCarousel />
-        <UserOutfitCarousel />
+        <Suspense fallback={<></>}>
+          <ComparisonModal />
+          <RelatedProductsCarousel />
+          <UserOutfitCarousel />
+        </Suspense>
       </div>
     </UserContext.Provider>
   );
