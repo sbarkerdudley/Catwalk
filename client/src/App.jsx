@@ -5,11 +5,11 @@ import RatingsAndReviews from './components/Reviews/main.jsx';
 
 var App = () => {
   return (
-    <React.Fragment>
+    <main id='app'>
       <LoadProduct />
       {/* <RelatedProductsAndOutfit /> */}
       {/* <RatingsAndReviews /> */}
-    </React.Fragment>
+    </main>
   );
 
 };

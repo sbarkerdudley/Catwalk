@@ -48,7 +48,6 @@ class Zoom extends Component {
 
   componentDidUpdate(prevProps, prevState, snapshot) {
     if (prevProps.img !== this.props.img) {
-      console.log('updating!');
 
       var {
         height,

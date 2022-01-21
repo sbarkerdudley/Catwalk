@@ -1,20 +1,20 @@
 const sharedHelpers = {
-
-  setButtonDisplay: function(selected, imageGallery, preference) {
+  setButtonDisplay: function (selected, imageGallery, preference) {
     var leftButtonDisplay, rightButtonDisplay, hide, show;
 
     switch (preference) {
-      case 'visibility':
-        hide = {visibility: 'hidden'};
-        show = {visibility: 'visible'};
-        break;
-      case 'display':
-        hide = {display: 'none'};
-        show = {display: 'inline-block'};
-        break;
-      default:
-        hide = {display: 'none'};
-        show = {display: 'inline-block'};
+      
+    case 'visibility':
+      hide = { visibility: 'hidden' };
+      show = { visibility: 'visible' };
+      break;
+    case 'display':
+      hide = { display: 'none' };
+      show = { display: 'inline-block' };
+      break;
+    default:
+      hide = { display: 'none' };
+      show = { display: 'inline-block' };
     }
 
     if (imageGallery.length === 0 || imageGallery.length === 1) {
@@ -34,9 +34,7 @@ const sharedHelpers = {
     }
 
     return [leftButtonDisplay, rightButtonDisplay];
-  }
-
+  },
 };
 
 export default sharedHelpers;
-

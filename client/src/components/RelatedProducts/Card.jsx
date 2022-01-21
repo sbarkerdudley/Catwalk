@@ -23,17 +23,26 @@ const Card = (props) => {
 
   return (
     <div className={`card ${label}`}
-      aria-description={description}
       title={slogan}
+      {...{
+        'aria-details': description,
+        'aria-label': slogan,
+      }}
     >
       <header className='card'>
         <Suspense fallback={<img src='assets/loading.gif' />} >
           <CardButton buttonText={'★'} click={() => addProductToOutfit(product)} id={id} />
-          { img && <CardImage img={img} click={update} id={id} /> }
+          {
+            img
+              &&
+            ( <Suspense fallback={<img src='assets/loading.gif' />} >
+              <CardImage img={img} click={update} id={id} />
+            </Suspense> )
+          }
         </Suspense>
       </header>
-      <CardInfo product={product} {...update} />
-      <span class="fas fa-expand"></span>
+      <CardInfo {...{product, update}} />
+      <span className="fas fa-expand"></span>
     </div>
   );
 };

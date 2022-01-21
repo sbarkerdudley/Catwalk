@@ -34,6 +34,18 @@ const ListBuilder = ({ productId, reviewData, sortBy, handleSortBy, starNumSelec
     );
   }
 
+  const REVIEWS = React.useMemo(() => {
+    return currentData.map((review, i) => {
+      if (i < counter) {
+        return (
+          <div className="reviewList" key={i}>
+            <ReviewItem review={review} key={review.review_id}/>
+          </div>
+        );
+      }
+    })
+  }, [currentData]);
+
   return (
     <ul>
       <div className="sortBy">
@@ -49,22 +61,9 @@ const ListBuilder = ({ productId, reviewData, sortBy, handleSortBy, starNumSelec
           <option value="helpful">Most Helpful</option>
           <option value="newest">Newest</option>
         </select>
-
         {showCurrentStarNum}
-
       </div>
-
-      {
-        currentData.map((review, i) => {
-          if (i < counter) {
-            return (
-              <div className="reviewList">
-                <ReviewItem review={review} key={review.review_id}/>
-              </div>
-            );
-          }
-        })
-      }
+      { REVIEWS }
       <button onClick={handleDisplayClick}>Display Two More Reviews</button>
     </ul>
   );

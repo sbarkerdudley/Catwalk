@@ -2,9 +2,7 @@ export const relatedProps = {
   label: 'related',
   title: 'Related Products',
   buttonText: '★',
-  click: () => {
-    console.log('related productz');
-  }
+  click: () => {}
 };
 
 export const outfitProps = {
@@ -18,9 +16,3 @@ export const addToOutfitProps = {
   title: 'Add To Outfit',
   buttonText: '+'
 };
-
-/*
-
-icons https://materialdesignicons.com/
-
-*/

@@ -8,7 +8,7 @@ const CardButton = (props) => (
     role={'button'}
     onClick={props.click}
   >
-    <span class="far fa-plus-square"></span>
+    <span className="far fa-plus-square"></span>
   </button>
 );
 

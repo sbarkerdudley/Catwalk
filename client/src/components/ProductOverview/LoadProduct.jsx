@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import ProductOverview from './ProductOverview.jsx';
 import { getProductInfoById, getAllStyles, getReviews, getReviewCount } from '../../../../Shared/makeRequest.js';
-import RatingsAndReviews from '../../components/Reviews/main.jsx';
-import RelatedProductsAndOutfit from '../RelatedProducts/RelatedProductsAndOutfit.jsx';
+const RatingsAndReviews = React.lazy(() => import('../../components/Reviews/main.jsx'));
+const RelatedProductsAndOutfit = React.lazy(() => import('../RelatedProducts/RelatedProductsAndOutfit.jsx'));
 
 var LoadProduct = () => {
   var [productState, setProductState] = React.useState(null);
@@ -27,26 +27,28 @@ var LoadProduct = () => {
         setProductState(Product);
       })
       .catch((err) => {
-        console.log('error getting product(s) and/or details');
         throw err;
       });
   };
 
   if (productState === null) {
-    changeProduct(61579);
-
-    // 61588
+    changeProduct(63609);
+    
     return (
       <></>
     );
 
   } else {
-    console.log('product', productState);
+
     return (
       <>
         <ProductOverview productState={productState} />
-        <RelatedProductsAndOutfit productId={productState.info.id} updateGlobalId={changeProduct}/>
-        <RatingsAndReviews productId={productState.info.id}/>
+        <Suspense fallback={<></>}>
+          <RelatedProductsAndOutfit productId={productState.info.id} updateGlobalId={changeProduct} />
+        </Suspense>
+        <Suspense fallback={<></>}>
+          <RatingsAndReviews productId={productState.info.id} />
+        </Suspense>
       </>
     );
   }

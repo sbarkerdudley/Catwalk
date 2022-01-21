@@ -9,12 +9,23 @@ var Share = () => {
 
   return (
     <div id="share">
-      <h5>Share on social media:</h5>
-      <a href="#" onClick={alertComingSoon}>Facebook</a>
-      &ensp; • &ensp;
-      <a href="#" onClick={alertComingSoon}>Twitter</a>
-      &ensp; • &ensp;
-      <a href="#" onClick={alertComingSoon}>Pinterest</a>
+      <ul>
+        <li className='share'>
+          <a href="#" onClick={alertComingSoon}>
+            <span class="fab fa-facebook-square"></span>
+          </a>
+        </li>
+        <li className='share'>
+          <a href="#" onClick={alertComingSoon}>
+            <span class="fab fa-twitter-square"></span>
+          </a>
+        </li>
+        <li className='share'>
+          <a href="#" onClick={alertComingSoon}>
+            <span class="fab fa-pinterest-square"></span>
+          </a>
+        </li>
+      </ul>
     </div>
   );
 };

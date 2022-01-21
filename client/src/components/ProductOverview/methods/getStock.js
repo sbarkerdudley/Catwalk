@@ -76,8 +76,3 @@ var getStock = {
 
 export default getStock;
 
-
-
-
-// var result = getStock.generateQtyOptionsForAll(sample);
-// console.log(result);

@@ -35,7 +35,6 @@ const AddReview = () => {
       ...formData,
       [event.target.name]: event.target.type === "checkbox" ? event.target.checked : event.target.value
     });
-    console.log(formData);
   }
 
   const validate = formData => {
@@ -50,62 +49,13 @@ const AddReview = () => {
   }
 
   const fileSelectedHandler = (event) => {
-    console.log(event.target.files[0])
   }
-
-  // axios.post('http://localhost:3000/api/groceries', {
-  //       product_id: props.productId,
-  //       rating: Number(formData.overallRating),
-  //       summary: formData.reviewSummary,
-  //       body: formData.reviewBody,
-  //       recommend: formData.recommendProduct,
-  //       name: formData.nickname,
-  //       email: formData.email,
-  //       photos: [],
-  //       characteristics: {
-  //         Size: {
-  //           id: 14,
-  //           value: formData.size
-  //         },
-  //         Width: {
-  //           id: 15,
-  //           value: formData.width
-  //         },
-  //         Comfort: {
-  //           id: 16,
-  //           value: formData.comfort
-  //         },
-  //         Quality: {
-  //           id: 17,
-  //           value: formData.quality
-  //         },
-  //         Length: {
-  //           id: 18,
-  //           value: formData.length
-  //         },
-  //         Fit: {
-  //           id: 19,
-  //           value: formData.fit
-  //         }
-  //       }
-  //     })
-  //     .then((response) => {
-  //       console.log('Axios Post.');
-  //       console.log(response)
-  //       this.props.summonGet();
-  //     })
-  //     .catch((error) => {
-  //       console.log('ERROR: on Axios Post.')
-  //       console.log(error);
-  //     });
-
+  
   const handleFormSubmission = (event) => {
     event.preventDefault();
     const errors = validate(formData);
     setErrors(errors);
     if(Object.keys(errors).length === 0) {
-      console.log('Form is now submitted...HTTP call to server.');
-      console.log(formData);
       setFormData({
         overallRating: '',
         recommendProduct: '',

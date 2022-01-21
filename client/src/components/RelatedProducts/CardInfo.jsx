@@ -1,11 +1,9 @@
-/* eslint-disable camelcase */
 import React from 'react';
 import FakeRating from './FakeRating.jsx';
-import {templatePrices} from './utils/methods.js'
+import { templatePrices } from './utils/methods.js'
 
 
 const CardInfo = (props) => {
-  console.log(props, 'card info')
 
   let { product, update } = props
   let { id, name, default_price, category } = product

@@ -21,12 +21,14 @@ const RelatedProductsAndOutfit = (props) => {
   let [userOutfit, setUserOutfit] = useState([]);
   let [modal, setModal] = useState(false);
 
-  useEffect((productId) => {
-    setCurrentProductId(productId);
-    productEndpoint.get(`/related/all/${productId}`)
-      .then(results => setRelatedProducts(results.data))
-      .catch(() => setRelatedProducts(fakeProductList));
-  }, [currentProductId, productId]);
+  useEffect(() => {
+    if (typeof productId === 'number') {
+      setCurrentProductId(productId);
+      productEndpoint.get(`/related/all/${productId}`)
+        .then(results => setRelatedProducts(results.data))
+        .catch(() => setRelatedProducts(fakeProductList));
+    }
+  }, [productId]);
 
   let updateOutfit = (product) => {
     setUserOutfit([...userOutfit, product]);

@@ -64,33 +64,3 @@ module.exports = {
     return $.extend(style, data);
   },
 };
-
-// Helpers for router and formatting
-
-
-// 1 - when page renders, load default cards with loading gif for related carousel
-  // 1a - check for localStorage array of outfit IDs - make API call if necessary or initialize to an empty array
-// 2 - current product is an ID, render with data as necessary
-  // 2a - memoize data for quick reload in a local object - check for {id: { product: {}, related: [{},{},{}] }}
-// 3 - load page with static data ?
-// 4 - when current product changes, update state of parent component
-
-/*
-
-this.state = {
-  currentID: 61590,
-  current: {} || null
-  relatedIDs: [62019,62121,62400,61889,61728],
-  related: [{},{},{},{},{}],
-  _storage: {
-    61590: {
-      relatedIDs: [123],
-      related: [{}]
-    }
-  },
-  outfit: [{},{}],
-  outfitIDs: [61588, 61589] // use localStorage
-}
-
-
-*/
