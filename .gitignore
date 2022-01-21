@@ -8,3 +8,5 @@ coverage
 .vscode*
 *.excalidraw
 package-lock.json
+
+*.pem

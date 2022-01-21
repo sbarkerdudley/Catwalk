@@ -3,7 +3,6 @@ import Carousel from './Carousel.jsx';
 import Wrapper from './Wrapper.jsx';
 import UserContext from './UserContext.jsx';
 import Modal from './Modal/Modal.jsx';
-import Products from '../../../../fakeData/product.js';
 import { fakeProductList } from './data.js';
 import { relatedProps, outfitProps, addToOutfitProps } from './utils/props.js';
 import { retrieveLocalOutfit, saveLocalOutfit } from './utils/methods.js';
@@ -21,13 +20,18 @@ const RelatedProductsAndOutfit = (props) => {
   let [userOutfit, setUserOutfit] = useState([]);
   let [modal, setModal] = useState(false);
 
-  useEffect(productId => {
-    setCurrentProductId(props.productId);
-    productEndpoint.get(`/related/all/${productId}`)
-      .then(results => setRelatedProducts(results.data))
-      .then(console.log)
-      .catch(() => setRelatedProducts(fakeProductList));
-  }, [currentProductId]); //getting debounced by API
+  useEffect(() => {
+    async (productId) => {
+      if (typeof productId === 'number') {
+        await setCurrentProductId(productId);
+        productEndpoint.get(`/related/all/${productId}`)
+        .then(results => setRelatedProducts(results.data))
+        .then(console.log)
+        .catch(() => setRelatedProducts([]))
+        .catch(() => setRelatedProducts(fakeProductList));
+      }
+    }
+  }, [currentProductId]);
 
   let updateOutfit = (product) => {
     setUserOutfit([...userOutfit, product]);
