@@ -75,7 +75,7 @@ const AddReview = () => {
         {Object.values(errors).map(error => (
           <h6 key={error}>{error}</h6>
         ))}
-        <h1>Write A Review!</h1>
+        <h2>Write A Review!</h2>
 
         <h2 className="center deep-purple-text">{feedback}</h2>
 

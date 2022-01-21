@@ -10,7 +10,7 @@ const Characteristics = ( { handleChange, title, properTitle, messageOptions, le
   const colorArray = ['black', 'red', 'orange', 'green', 'blue', 'purple'];
   return (
     <div className="individualChar">
-      <h1>{properTitle}</h1>
+      <h3>{properTitle}</h3>
       <p>How would you describe the {title} of the item?</p>
       <span> {leftWord}
         {messageOptions.map((message, i) => {

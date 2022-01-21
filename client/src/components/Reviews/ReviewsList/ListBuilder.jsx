@@ -30,7 +30,7 @@ const ListBuilder = ({ productId, reviewData, sortBy, handleSortBy, starNumSelec
 
   if (!currentData) {
     return (
-      <h1>Trying to Load Reviews...</h1>
+      <h3>Trying to Load Reviews...</h3>
     );
   }
 

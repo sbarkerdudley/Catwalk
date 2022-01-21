@@ -1,12 +1,12 @@
-import React, { useState, useEffect } from 'react';
-import ReviewsList from './ReviewsList/main.jsx';
+import './styles/style.css';
+import React, { useState, useEffect, Suspense } from 'react';
+const ReviewsList = React.lazy(() => import('./ReviewsList/main.jsx'));
 import { getReviews, getReviewsMeta } from '../../../../Shared/makeRequest.js';
 import getTotalReviews from '../../../../Shared/getTotalReviews.js';
 import RatingBreakdown from './RatingBreakdown/main.jsx';
 import AddReview from './WriteNewReview/main.jsx';
-import './styles/style.css';
 
-const RatingsAndReviews = ( {productId} ) => {
+const RatingsAndReviews = ({ productId }) => {
 
   const [showForm, setShowForm] = useState(false);
   const handleAddReviewClick = (event) => {
@@ -46,38 +46,38 @@ const RatingsAndReviews = ( {productId} ) => {
     <button onClick={handleAddReviewClick}>Add A Review</button>
   );
 
-  if (!reviews) {
+  if (!reviews || !meta) {
     return (
-      <h1>Loading Reviews...</h1>
-    );
-  }
-
-  if (!meta) {
-    return (
-      <h1>Loading Review Data...</h1>
+      <h3>Loading...</h3>
     );
   }
 
   return (
     <section id="reviews">
       <div className="float-container">
-        <div className="float-child">
-          <div className="breakdown">
-            <h1>Ratings & Reviews</h1>
-            <RatingBreakdown reviewsInfo={meta} handleStarNumClick={handleStarNumClick} />
+        <Suspense fallback={<></>} >
+          <div className="float-child">
+              <div className="breakdown">
+                <h3>Ratings & Reviews</h3>
+                <RatingBreakdown
+                  reviewsInfo={meta}
+                  handleStarNumClick={handleStarNumClick}
+                />
+              </div>
           </div>
-        </div>
-
-        <div className="float-child">
-          <div className="list">
-            <ReviewsList productId={productId} reviewData={reviews} sortBy={sortBy} handleSortBy={handleSortBy} starNumSelect={starNum}/>
+          <div className="float-child">
+            <div className="list">
+            <ReviewsList productId={productId} reviewData={reviews} sortBy={sortBy} handleSortBy={handleSortBy} starNumSelect={starNum} />
+            </div>
           </div>
-        </div>
-      </div>
-      <div className="write-review">
-        {renderForm}
-      </div>
-    </section>
+          <Suspense fallback={<></>} >
+            <div className="write-review">
+              {renderForm}
+            </div>
+          </Suspense>
+        </Suspense>
+      </div >
+    </section >
 
   );
 };

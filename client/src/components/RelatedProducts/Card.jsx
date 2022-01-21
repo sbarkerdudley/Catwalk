@@ -20,16 +20,16 @@ const Card = (props) => {
 
   if (label === 'addToOutfit') {
     return (
-      <div className={`card ${label}`}>
+      <figure className={`card ${label}`}>
         <CardButton {...{label}} />
-      </div>
+      </figure>
     )
   }
 
   let { img, description, slogan, id } = product;
 
   return (
-    <div className={`card ${label}`}
+    <figure className={`card ${label}`}
       title={slogan}
       {...{
         'aria-details': description,
@@ -52,7 +52,7 @@ const Card = (props) => {
         <CardInfo {...{ product, update }} />
       </Suspense>
       <span className="fas fa-expand"></span>
-    </div>
+    </figure>
   );
 };
 

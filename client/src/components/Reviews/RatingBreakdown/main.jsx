@@ -16,7 +16,7 @@ var RatingBreakdown = ( {reviewsInfo, handleStarNumClick} ) => {
   return (
     <div className="ratingsBreakdown">
       <div className="topSectionRatings">
-        <h1> {avgScore} <DisplayStarRating ratings={reviewsInfo.ratings} /> </h1>
+        <h3> {avgScore} <DisplayStarRating ratings={reviewsInfo.ratings} /> </h3>
       </div>
       <div>
         {reviewBars.map((item, i) => {

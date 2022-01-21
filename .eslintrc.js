@@ -37,6 +37,6 @@ module.exports = {
     /* Minuta */
     'comma-style': [2, 'last'],
     quotes: [1, 'single'],
-    react: 'prop-types': false,
+    react: { 'prop-types': false ,},
   },
 };

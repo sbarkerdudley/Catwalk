@@ -1,24 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap');
 
-@import url('https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
-
-#reviews {
-  min-height: 80vh;
-}
-
-#reviews>button {
-  color: var(--accent);
-  background-color: var(--white);
-  border-radius: 2px;
-  margin: 1rem;
-  padding: 0.5rem 1.5rem;
-}
-
-
-
-#reviews h1 {
-  text-align: left;
-  font-weight: 200;
+#reviews button {
+  background-color: var(--accent1);
 }
 
 .float-container {
@@ -27,65 +9,44 @@
   flex-direction: row;
 }
 
-.float-child {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  margin: 0.5rem;
-}
 
+  /* display: flex; */
+  /* flex-direction: column; */
+  /* flex-wrap: wrap; */
+  /* margin: 0.5rem; */
 
-.breakdown {
-  align-items: left;
-  text-align: left;
-}
+  /* .float-child .list { */
+    /* display: block; */
+    /* flex-direction: row; */
+    /* flex-wrap: wrap; */
+/* } */
 
-.float-child .list {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-}
-
-li {
-  display: block;
+.write-review {
+  /* margin: auto; */
 }
 
 .write-review button {
-  align-items: center;
-  color: #f8f8f8;
-  background-color: var(--accent);
-  border-radius: 0.5rem;
-  /* height: 100px;
-  width: 300px; */
+  color: var(--white);
+  background-color: var(--accent1);
   font-weight: 800;
   font-size: 200%;
-  padding: 0.5rem 1.5rem;
   margin: 1rem auto;
 }
 
 .new-review fieldset {
-  font-family: 'Karla', sans-serif;
   background-color: var(--white-trans);
-  padding: 1rem;
-  border-radius: 1rem;
-  border-color: #cbcbcb;
 }
 .new-review legend {
   font-size: 150%;
-  color: var(--accent);
-  font-weight: bold;
+  color: var(--accent2);
+  font-weight: 700;
 }
 
-.container {
-  /* width: 80%; */
-  /* margin: auto; */
-  /* padding: 50%; */
-
-}
-
-.reviewItem {
+.reviewItem li {
+  width: 100%;
+  display: block;
   color: var(--black);
-  padding: 0.5rem;
+  margin: auto;
 }
 
 .reviewerAndDate {
@@ -98,21 +59,24 @@ li {
 }
 
 .reviewBody {
-  padding-top: 20px;
+  font-size: 80%;
+  /* padding-top: 1rem; */
 }
+
 .productRecommended {
   font-style: italic;
   color: var(--accent2);
-  padding-top: 20px;
+  padding-top: 1rem;
 }
 
 .reviewBottomSection {
-  padding-top: 20px;
+  padding-top: 1rem;
+  display: inline-block;
 }
 
 
 .Stars {
-  --star-size: 20px;
+  --star-size: 1rem;
   --star-color: var(--white-trans);
   --star-background: var(--yellow);
   --percent: calc(var(--rating) / 5 * 100%);
@@ -136,21 +100,15 @@ li {
   display: none;
 }
 
-.starRating {
-  cursor: pointer;
-  transition: color 200ms;
-}
-
 .Bars {
-  --bar-size: 90px;
+  --bar-size: minmax(6rem, 90px);
   --bar-color: transparent;
   --bar-background: var(--yellow);
   --percent: calc(var(--rating) / 5 * 100%);
   display: inline-block;
   text-align: center;
-  width: 200px;
-  height: 20px;
-  border: 1px solid black;
+  width: 100%;
+  height: 1rem;
   background: linear-gradient(
     to right,
     var(--bar-background) var(--percent),
@@ -165,17 +123,12 @@ li {
   justify-content: space-evenly;
   align-items: flex-end;
   color: var(--red);
-} */
+}
 
 .individualChar {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   align-items: center;
-  /* color: var(--grey-lt);; */
 }
 
-section {
-  margin: 3rem;
-  border-radius: var(--radius-xl);
-}

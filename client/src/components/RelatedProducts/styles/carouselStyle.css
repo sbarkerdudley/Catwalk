@@ -34,7 +34,7 @@ main.outfit-carousel {
   display: none;
 }
 
-div.card {
+figure.card {
   border-radius: var(--radius-sm);
   justify-content: center;
   z-index: 15;
@@ -47,7 +47,7 @@ div.card {
   box-shadow: var(--shadow);
 }
 
-div.card > * {
+figure.card > * {
   z-index: 5;
 }
 
@@ -69,25 +69,24 @@ span.fas {
   position: absolute;
   bottom: 0;
   right: 0;
-  font-size: 150%;
+  /* font-size: 150%; */
   padding: 20px;
 }
 
-div.card:hover
-span.fas {
-  visibility: visible;
-}
-
-
-div.card:hover,
+figure.card:hover,
 header button:hover,
 header > button {
   cursor: pointer;
   transform: scale(1.02);
-  color: orangered;
+  color: var(--accent2);
   box-shadow: var(--glow);
 }
 
+figure.card:hover
+span.fas {
+  color: var(--accent2);
+  visibility: visible;
+}
 
 header button:hover {
   transform: scale(1.1);
